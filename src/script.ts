@@ -21,4 +21,19 @@ const readonlyArr: readonly [number, number, number] = [1, 2, 3];
 
 // readonlyArr[0] = 10; // Error: Cannot assign to '0' because it is a read-only property.
 
-//* Optional, Default, and Rest Parameters (...args)
+//* Optional, Default
+const concatName= (firstName: string, lastName?: string): string => {
+  if (!lastName) {
+    console.log(firstName);
+  }
+  return firstName +" "+ lastName;
+};
+const greet = (name: string, greeting: string = "Hello"): void => {
+  console.log(`${greeting}, ${name}!`);
+}
+
+greet("Alice"); // Output: Hello, Alice!
+greet("Bob", "Hi"); // Output: Hi, Bob!
+
+
+//* Rest Parameters (...args)
