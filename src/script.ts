@@ -47,3 +47,44 @@ const logUserAction=(...args:[name:string, age: number ,isActive: boolean])=>{
 console.log(`User ${name} is ${age} years old.`);// Output: User Alice is 30 years old.
 };
 logUserAction("Alice", 30,false); // Output: User Alice is 30 years old.
+
+//*Object type, type alias, interface
+
+// Type alias for user object
+type TUser = { 
+  name: string; 
+  age: number;
+  isActive: boolean
+  action:()=>void;
+  badges: string[];
+  address: Address;     // Using the Address type alias
+}
+
+type Address={    // Type alias for address object
+  street: string;
+  city: string;
+}
+
+// Interface for user object
+interface IUser {
+  name: string;
+  age: number;
+  isActive: boolean;
+  action:()=>void;
+  badges: string[];
+}
+
+
+// Using the IUser interface to define the user object
+const user:TUser = {
+
+  name: "Alice",
+  age: 30,
+  isActive: true,
+  action:()=>console.log("User action performed"),
+  badges: ["admin", "moderator"],
+  address: {        // Using the Address type alias to define the address property
+    street: "123 Main St",
+    city: "Anytown"
+  }
+};
