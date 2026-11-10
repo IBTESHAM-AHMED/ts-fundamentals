@@ -6,7 +6,7 @@
 //?public: can be accessed from anywhere
 //?private: can only be accessed within the class
 //?protected: can be accessed within the class and its subclasses
-//?readonly: can only be accessed within the class and its subclasses, but cannot be modified
+//?readonly: can be read but not reassigned after it is set
 class Employee {
     name;
     _baseSalary;
@@ -31,8 +31,8 @@ class Employee {
 }
 const emp1 = new Employee("john", 5000);
 const emp2 = new Employee("Jane", 6500);
-// emp1.baseSalary = 6000; // Error: Property 'baseSalary' is private and only accessible within class 'Employee'.
-// emp1.baseSalary=-500;// Error: salary can not be negative
+// emp1._baseSalary = 6000; // Error: Property 'baseSalary' is private and only accessible within class 'Employee'.
+// emp1.baseSalary=-500;// Runtime Error: salary can not be negative
 emp1.baseSalary = 2000;
 console.log(emp1.bonusSalary); // 
 console.log(emp1.baseSalary);
