@@ -26,11 +26,21 @@ class Employee {
 }
 class Manager extends Employee {
     calculatePay(taxrate) {
+        // super reuses Employee's tax logic, then adds the manager bonus
         return super.calculatePay(taxrate) + 3000;
+    }
+}
+class Developer extends Employee {
+    type;
+    constructor(name, baseSalary, type) {
+        super(name, baseSalary);
+        this.type = type;
     }
 }
 const employee = new Employee("john", 4000);
 const manager = new Manager("jane", 5000);
-console.log(employee.calculatePay(0.1));
-console.log(manager.calculatePay(0.1));
+const developer = new Developer("zoe", 3000, "Frontend");
+console.log(employee.calculatePay(0.1)); // 3600
+console.log(manager.calculatePay(0.1)); // 4500 + 3000 = 7500
+console.log(developer); //Developer {name: 'zoe', _baseSalary: 3000, type: 'Frontend'}
 export {};

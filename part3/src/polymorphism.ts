@@ -31,12 +31,21 @@ class Manager extends Employee{
     }
 }
 class Developer extends Employee{
+    constructor(
+        name: string,
+        baseSalary:number,
+        public type:string,
+    ){
+        super(name,baseSalary);
+    }
 
-    
+
 }
 
 const employee = new Employee("john",4000);
 const manager = new Manager("jane",5000);
+const developer = new Developer("zoe",3000,"Frontend")
 
 console.log(employee.calculatePay(0.1));// 3600
 console.log(manager.calculatePay(0.1));// 4500 + 3000 = 7500
+console.log(developer);//Developer {name: 'zoe', _baseSalary: 3000, type: 'Frontend'}
